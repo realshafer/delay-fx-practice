@@ -57,23 +57,31 @@ function setup(){
   styleButton(original1Button, col2X, startY + rowH, "#00E938");
   original1Button.mousePressed(toggleOriginal1);
 
-  // ANSWER row
-  createDiv("ANSWER")
+  // ORIGINAL 2 row
+  createDiv("Dry Guitar")
     .position(col1X - 150, startY + rowH*2)
     .style("color","white").style("font-size","24px");
+  original2Button = createButton("PLAY");
+  styleButton(original2Button, col2X, startY + rowH*2, "#00E938");
+  original2Button.mousePressed(toggleOriginal2);
+
+  // ANSWER row
+  createDiv("ANSWER")
+    .position(col1X - 150, startY + rowH*3)
+    .style("color","white").style("font-size","24px");
   answerButton = createButton("REVEAL");
-  styleButton(answerButton, col2X, startY + rowH*2, "#03A9F4");
+  styleButton(answerButton, col2X, startY + rowH*3, "#03A9F4");
   answerButton.mousePressed(showAnswer);
 
-  // NEXT QUESTION button
+  // NEXT QUESTION button (full row)
   nextButton = createButton("NEXT QUESTION");
-  nextButton.position(width/2 - 100, startY + rowH*3 + 20);
+  nextButton.position(width/2 - 100, startY + rowH*4 + 20);
   nextButton.size(200, rowH);
   nextButton.style("font-size","20px");
   nextButton.style("background-color","#FFC107");
   nextButton.mousePressed(nextQuestion);
 
-  // Pick first sound
+  // pick first sound
   chooseSound();
 }
 
@@ -111,6 +119,18 @@ function toggleOriginal1() {
   }
 }
 
+function toggleOriginal2() {
+  if (original2.isPlaying()) {
+    original2.stop();
+    resetButton(original2Button, "PLAY", "#00E938");
+  } else {
+    stopAll();
+    original2.amp(0.8);
+    original2.loop();
+    original2Button.html("STOP").style("background-color","#F80F05");
+  }
+}
+
 function resetButton(btn, label, color) {
   btn.html(label);
   btn.style("background-color", color);
@@ -119,8 +139,10 @@ function resetButton(btn, label, color) {
 function stopAll(){
   if (player) player.stop();
   if (original1) original1.stop();
+  if (original2) original2.stop();
   resetButton(questionButton, "PLAY", "#00E938");
   resetButton(original1Button, "PLAY", "#00E938");
+  resetButton(original2Button, "PLAY", "#00E938");
 }
 
 function showAnswer() {
