@@ -1,18 +1,24 @@
-let sound1, sound2, sound3, sound4, sound5, sound6, sound7, sound8;
-let original1;
+let sound1, sound2, sound3, sound4, sound5, sound6, sound7, sound8, sound9, sound10;
+let original1, original2;
 let questionButton, original1Button, answerButton, nextButton;
 let player, fileName;
 let answerRevealed = false;
 
 function preload() {
   // Question pool
-  sound1 = loadSound('assets/Chorus.mp3');
-  sound2 = loadSound('assets/Flanger.mp3');
-  sound3 = loadSound('assets/Resonator.mp3');
-  sound4 = loadSound('assets/Slapback.mp3');
-  sound5 = loadSound('assets/Vibrato.mp3');
+  sound1 = loadSound('assets/Vox Chorus.mp3');
+  sound2 = loadSound('assets/Vox Flanger.mp3');
+  sound3 = loadSound('assets/Vox Resonator.mp3');
+  sound4 = loadSound('assets/Vox Slapback.mp3');
+  sound5 = loadSound('assets/Vox Vibrato.mp3');
+  sound6 = loadSound('assets/Guitar Chorus.mp3');
+  sound7 = loadSound('assets/Guitar Flanger.mp3');
+  sound8 = loadSound('assets/Guitar Resonator.mp3');
+  sound9 = loadSound('assets/Guitar Slapback.mp3');
+  sound10 = loadSound('assets/Guitar Vibrato.mp3');
   // Originals
-  original1 = loadSound('assets/Dry Guitar.mp3');
+  original1 = loadSound('assets/Dry Vox.mp3');
+  original2 = loadSound('assets/Dry Guitar.mp3');
 }
 
 function setup(){  
@@ -44,7 +50,7 @@ function setup(){
   questionButton.mousePressed(toggleQuestion);
 
   // ORIGINAL 1 row
-  createDiv("Dry Guitar")
+  createDiv("Dry Vox")
     .position(col1X - 150, startY + rowH)
     .style("color","white").style("font-size","24px");
   original1Button = createButton("PLAY");
@@ -146,5 +152,10 @@ function chooseSound() {
   else if (choice === 1) { player = sound2; fileName = "Flanger"; }
   else if (choice === 2) { player = sound3; fileName = "Resonator"; }
   else if (choice === 3) { player = sound4; fileName = "Slapback"; }
-  else { player = sound7; fileName = "Vibrato"; }
+  else if (choice === 4) { player = sound5; fileName = "Vibrato"; }
+  else if (choice === 5) { player = sound6; fileName = "Chorus"; }
+  else if (choice === 6) { player = sound7; fileName = "Flanger"; }
+  else if (choice === 7) { player = sound8; fileName = "Resonator"; }
+  else if (choice === 8) { player = sound9; fileName = "Slapback"; }
+  else { player = sound10; fileName = "Vibrato"; }
 }
