@@ -6,15 +6,13 @@ let answerRevealed = false;
 
 function preload() {
   // Question pool
-  sound1 = loadSound('assets/104.mp3');
-  sound2 = loadSound('assets/112.mp3');
-  sound3 = loadSound('assets/120.mp3');
-  sound4 = loadSound('assets/128.mp3');
-  sound5 = loadSound('assets/136.mp3');
-  sound6 = loadSound('assets/144.mp3');
-  sound7 = loadSound('assets/152.mp3');
+  sound1 = loadSound('assets/Chorus.mp3');
+  sound2 = loadSound('assets/Flanger.mp3');
+  sound3 = loadSound('assets/Resonator.mp3');
+  sound4 = loadSound('assets/Slapback.mp3');
+  sound5 = loadSound('assets/Vibrato.mp3');
   // Originals
-  original1 = loadSound('assets/120-click.mp3');
+  original1 = loadSound('assets/Dry Guitar.mp3');
 }
 
 function setup(){  
@@ -25,11 +23,11 @@ function setup(){
 
   // Title
   textSize(36);
-  text("Tempo ID Practice", width/2, height/9);
+  text("Delay-Based Effects Practice", width/2, height/9);
 
   // Subtitle
   textSize(20);
-  text("BPM = 104, 112, 120, 128, 136, 144, 152", width/2, height/9 + 40);
+  text("Slapback, Vibrato, Chorus, Flanger, Resonator", width/2, height/9 + 40);
 
   // --- Layout variables ---
   let rowH = 60;
@@ -46,7 +44,7 @@ function setup(){
   questionButton.mousePressed(toggleQuestion);
 
   // ORIGINAL 1 row
-  createDiv("BPM = 120")
+  createDiv("Dry Guitar")
     .position(col1X - 150, startY + rowH)
     .style("color","white").style("font-size","24px");
   original1Button = createButton("PLAY");
@@ -138,17 +136,15 @@ let secondLastChoice = -1;
 function chooseSound() {
   let choice;
   do {
-    choice = int(random(7));
+    choice = int(random(5));
   } while (choice === lastChoice && choice === secondLastChoice);
 
   secondLastChoice = lastChoice;
   lastChoice = choice;
 
-  if (choice === 0) { player = sound1; fileName = "BPM = 104"; }
-  else if (choice === 1) { player = sound2; fileName = "BPM = 112"; }
-  else if (choice === 2) { player = sound3; fileName = "BPM = 120"; }
-  else if (choice === 3) { player = sound4; fileName = "BPM = 128"; }
-  else if (choice === 4) { player = sound5; fileName = "BPM = 136"; }
-  else if (choice === 5) { player = sound6; fileName = "BPM = 144"; }
-  else { player = sound7; fileName = "BPM = 152"; }
+  if (choice === 0) { player = sound1; fileName = "Chorus"; }
+  else if (choice === 1) { player = sound2; fileName = "Flanger"; }
+  else if (choice === 2) { player = sound3; fileName = "Resonator"; }
+  else if (choice === 3) { player = sound4; fileName = "Slapback"; }
+  else { player = sound7; fileName = "Vibrato"; }
 }
