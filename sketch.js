@@ -17,8 +17,8 @@ function preload() {
   sound9 = loadSound('assets/Guitar Slapback.mp3');
   sound10 = loadSound('assets/Guitar Vibrato.mp3');
   // Originals
-  original1 = loadSound('assets/Dry Vox.mp3');
-  original2 = loadSound('assets/Dry Guitar.mp3');
+  original1 = loadSound('assets/Vox Dry.mp3');
+  original2 = loadSound('assets/Guitar Dry.mp3');
 }
 
 function setup(){  
