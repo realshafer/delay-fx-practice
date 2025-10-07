@@ -164,7 +164,7 @@ let secondLastChoice = -1;
 function chooseSound() {
   let choice;
   do {
-    choice = int(random(5));
+    choice = int(random(10));
   } while (choice === lastChoice && choice === secondLastChoice);
 
   secondLastChoice = lastChoice;
