@@ -1,6 +1,6 @@
 let sound1, sound2, sound3, sound4, sound5, sound6, sound7, sound8, sound9, sound10;
 let original1, original2;
-let questionButton, original1Button, answerButton, nextButton;
+let questionButton, original1Button, original2Button, answerButton, nextButton;
 let player, fileName;
 let answerRevealed = false;
 
